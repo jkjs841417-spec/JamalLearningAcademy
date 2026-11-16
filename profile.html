@@ -1,0 +1,403 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile | Jamal Learning Academy</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #081426;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+    }
+
+    .topbar {
+      background: #101f35;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #263b56;
+    }
+
+    .brand {
+      color: #e8bd65;
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .topbar a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 35px auto;
+      padding: 0 18px;
+    }
+
+    .heading {
+      margin-bottom: 25px;
+    }
+
+    .heading h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .heading p {
+      color: #aab8ca;
+      font-size: 14px;
+    }
+
+    .profile-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 22px;
+    }
+
+    .card {
+      background: #11233c;
+      border: 1px solid #263b56;
+      border-radius: 14px;
+      padding: 25px;
+    }
+
+    .profile-summary {
+      text-align: center;
+    }
+
+    .avatar {
+      width: 95px;
+      height: 95px;
+      border-radius: 50%;
+      background: #e8bd65;
+      color: #101f35;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      font-weight: bold;
+      margin: 0 auto 16px;
+    }
+
+    .profile-summary h2 {
+      font-size: 20px;
+      margin-bottom: 7px;
+    }
+
+    .profile-summary p {
+      color: #aab8ca;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    .status {
+      display: inline-block;
+      color: #8de0a8;
+      background: #183d35;
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+
+    .profile-links {
+      margin-top: 25px;
+      border-top: 1px solid #263b56;
+      padding-top: 15px;
+      text-align: left;
+    }
+
+    .profile-links a {
+      display: block;
+      padding: 12px 5px;
+      color: #dce5f1;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .profile-links a:hover {
+      color: #e8bd65;
+    }
+
+    .section-title {
+      font-size: 19px;
+      margin-bottom: 22px;
+      color: #e8bd65;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: block;
+      color: #cbd6e5;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #344b68;
+      border-radius: 8px;
+      background: #0b192d;
+      color: #fff;
+      outline: none;
+      font-size: 14px;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #e8bd65;
+    }
+
+    input[readonly] {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 85px;
+    }
+
+    .save-btn {
+      background: #e8bd65;
+      color: #101f35;
+      border: none;
+      padding: 13px 25px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .save-btn:hover {
+      background: #f5d58f;
+    }
+
+    .message {
+      color: #8de0a8;
+      font-size: 13px;
+      margin-top: 15px;
+      display: none;
+    }
+
+    .note {
+      color: #91a3b9;
+      font-size: 12px;
+      margin-top: 18px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 700px) {
+      .profile-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field.full {
+        grid-column: auto;
+      }
+
+      .heading h1 {
+        font-size: 24px;
+      }
+
+      .topbar {
+        padding: 16px 5%;
+      }
+
+      .brand {
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="brand">Jamal Learning Academy</div>
+    <a href="dashboard.html">← Back to Dashboard</a>
+  </header>
+
+  <main class="container">
+
+    <div class="heading">
+      <h1>My Profile</h1>
+      <p>Manage your personal information and account details.</p>
+    </div>
+
+    <div class="profile-layout">
+
+      <aside class="card profile-summary">
+        <div class="avatar" id="avatar">S</div>
+        <h2 id="profileName">Student Name</h2>
+        <p>Student Account</p>
+        <span class="status">● Active Student</span>
+
+        <div class="profile-links">
+          <a href="dashboard.html">▣ Dashboard</a>
+          <a href="courses.html">▤ My Courses</a>
+          <a href="profile.html">◉ My Profile</a>
+          <a href="index.html">↪ Logout</a>
+        </div>
+      </aside>
+
+      <section class="card">
+        <h2 class="section-title">Personal Information</h2>
+
+        <form id="profileForm">
+          <div class="form-grid">
+
+            <div class="field">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName"
+                placeholder="Enter your full name" required>
+            </div>
+
+            <div class="field">
+              <label for="mobile">Mobile Number</label>
+              <input type="tel" id="mobile"
+                placeholder="Your registered mobile number"
+                readonly>
+            </div>
+
+            <div class="field">
+              <label for="email">Email Address</label>
+              <input type="email" id="email"
+                placeholder="Enter your email">
+            </div>
+
+            <div class="field">
+              <label for="city">City</label>
+              <input type="text" id="city"
+                placeholder="Enter your city">
+            </div>
+
+            <div class="field">
+              <label for="state">State</label>
+              <input type="text" id="state"
+                placeholder="Enter your state">
+            </div>
+
+            <div class="field">
+              <label for="education">Education</label>
+              <select id="education">
+                <option value="">Select Education</option>
+                <option>10th Pass</option>
+                <option>12th Pass</option>
+                <option>Graduate</option>
+                <option>Post Graduate</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="address">Address</label>
+              <textarea id="address"
+                placeholder="Enter your complete address"></textarea>
+            </div>
+
+          </div>
+
+          <button type="submit" class="save-btn">
+            Save Profile
+          </button>
+
+          <p class="message" id="message">
+            Profile information saved in this browser.
+          </p>
+
+          <p class="note">
+            Note: This is currently a frontend demo. Your profile will be
+            securely saved to your student account after Firebase integration.
+          </p>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    const fields = [
+      "fullName",
+      "email",
+      "city",
+      "state",
+      "education",
+      "address"
+    ];
+
+    const form = document.getElementById("profileForm");
+    const message = document.getElementById("message");
+
+    function loadProfile() {
+      fields.forEach(function(id) {
+        const savedValue = localStorage.getItem("profile_" + id);
+        if (savedValue !== null) {
+          document.getElementById(id).value = savedValue;
+        }
+      });
+
+      const name = document.getElementById("fullName").value;
+      if (name) {
+        document.getElementById("profileName").textContent = name;
+        document.getElementById("avatar").textContent =
+          name.trim().charAt(0).toUpperCase();
+      }
+    }
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      fields.forEach(function(id) {
+        localStorage.setItem(
+          "profile_" + id,
+          document.getElementById(id).value.trim()
+        );
+      });
+
+      const name = document.getElementById("fullName").value.trim();
+
+      document.getElementById("profileName").textContent =
+        name || "Student Name";
+
+      document.getElementById("avatar").textContent =
+        name ? name.charAt(0).toUpperCase() : "S";
+
+      message.style.display = "block";
+    });
+
+    loadProfile();
+  </script>
+
+</body>
+</html>
