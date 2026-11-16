@@ -1,0 +1,687 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101a35">
+  <title>Course Details | Jamal Learning Academy</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6fb;
+      color: #17233f;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .topbar {
+      min-height: 72px;
+      background: #101a35;
+      padding: 15px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .brand {
+      color: #e5b85c;
+      font-size: 19px;
+      font-weight: bold;
+      letter-spacing: .4px;
+    }
+
+    .top-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .top-links a {
+      color: #dbe2f0;
+      font-size: 13px;
+    }
+
+    .top-links a:hover {
+      color: #e5b85c;
+    }
+
+    .breadcrumb {
+      max-width: 1200px;
+      margin: auto;
+      padding: 22px 5%;
+      color: #8b95a5;
+      font-size: 12px;
+    }
+
+    .breadcrumb a {
+      color: #a77b2b;
+    }
+
+    .course-hero {
+      background: linear-gradient(115deg, #101a35, #293f6a);
+      color: #fff;
+      padding: 48px 5%;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.5fr .8fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .course-tag {
+      display: inline-block;
+      background: rgba(229,184,92,.14);
+      color: #f0d18c;
+      border: 1px solid rgba(229,184,92,.35);
+      padding: 7px 13px;
+      border-radius: 20px;
+      font-size: 11px;
+      margin-bottom: 18px;
+    }
+
+    .hero-content h1 {
+      font-size: 34px;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      color: #f0d18c;
+    }
+
+    .hero-content p {
+      max-width: 620px;
+      color: #d4dbea;
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      color: #dbe2f0;
+      font-size: 12px;
+    }
+
+    .preview-card {
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 17px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,.18);
+    }
+
+    .preview-screen {
+      height: 180px;
+      background: linear-gradient(135deg,#182b50,#3b5685);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 55px;
+      color: #f0d18c;
+      position: relative;
+    }
+
+    .preview-label {
+      position: absolute;
+      bottom: 13px;
+      left: 15px;
+      font-size: 11px;
+      color: #fff;
+    }
+
+    .preview-info {
+      padding: 20px;
+    }
+
+    .preview-info h3 {
+      color: #fff;
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .preview-info p {
+      color: #bdc6d8;
+      font-size: 12px;
+      line-height: 1.6;
+      margin-bottom: 17px;
+    }
+
+    .enroll-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 14px;
+      background: linear-gradient(135deg,#f0d18c,#c89535);
+      color: #101a35;
+      border-radius: 9px;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    .preview-note {
+      text-align: center;
+      color: #bdc6d8;
+      font-size: 10px;
+      margin-top: 12px;
+    }
+
+    .main-layout {
+      max-width: 1200px;
+      margin: auto;
+      padding: 38px 5%;
+      display: grid;
+      grid-template-columns: 1.5fr .7fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .section-card {
+      background: #fff;
+      border: 1px solid #e8edf4;
+      border-radius: 14px;
+      padding: 25px;
+      margin-bottom: 22px;
+      box-shadow: 0 5px 18px rgba(20,32,60,.035);
+    }
+
+    .section-card h2 {
+      color: #14203c;
+      font-size: 20px;
+      margin-bottom: 17px;
+    }
+
+    .section-card > p {
+      color: #748096;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .learning-list {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .learning-list li {
+      padding: 10px 0;
+      color: #667287;
+      font-size: 13px;
+      border-bottom: 1px solid #edf0f5;
+      line-height: 1.6;
+    }
+
+    .learning-list li:last-child {
+      border-bottom: none;
+    }
+
+    .learning-list li::before {
+      content: "✓";
+      color: #b88932;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .curriculum-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 17px;
+    }
+
+    .curriculum-heading h2 {
+      margin: 0;
+    }
+
+    .curriculum-heading span {
+      color: #8b95a5;
+      font-size: 11px;
+    }
+
+    .module {
+      border: 1px solid #e7ebf2;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 13px;
+    }
+
+    .module-title {
+      background: #f8f9fc;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .module-title strong {
+      color: #263653;
+      font-size: 13px;
+    }
+
+    .module-title span {
+      color: #8993a4;
+      font-size: 11px;
+    }
+
+    .lesson {
+      padding: 14px 16px;
+      border-top: 1px solid #edf0f5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .lesson-name {
+      color: #667287;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .lesson-lock {
+      color: #a77b2b;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .instructor {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .instructor-avatar {
+      width: 55px;
+      height: 55px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: #101a35;
+      color: #f0d18c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 23px;
+      font-weight: bold;
+    }
+
+    .instructor h3 {
+      font-size: 15px;
+      color: #17233f;
+      margin-bottom: 5px;
+    }
+
+    .instructor p {
+      color: #8791a3;
+      font-size: 11px;
+    }
+
+    .info-list {
+      list-style: none;
+    }
+
+    .info-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 13px 0;
+      border-bottom: 1px solid #edf0f5;
+      font-size: 12px;
+    }
+
+    .info-list li:last-child {
+      border-bottom: none;
+    }
+
+    .info-list span:first-child {
+      color: #8791a3;
+    }
+
+    .info-list span:last-child {
+      color: #263653;
+      font-weight: bold;
+      text-align: right;
+    }
+
+    .security-box {
+      background: #fff8e9;
+      border: 1px solid #f0dfb9;
+      border-radius: 12px;
+      padding: 17px;
+      color: #80622b;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .footer {
+      background: #101a35;
+      color: #aab4c7;
+      text-align: center;
+      padding: 22px;
+      font-size: 12px;
+    }
+
+    @media(max-width:850px) {
+      .hero-inner,
+      .main-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .preview-card {
+        max-width: 480px;
+      }
+    }
+
+    @media(max-width:600px) {
+      .topbar {
+        padding: 17px 4%;
+      }
+
+      .brand {
+        font-size: 15px;
+      }
+
+      .top-links {
+        gap: 12px;
+      }
+
+      .top-links a {
+        font-size: 11px;
+      }
+
+      .course-hero {
+        padding: 35px 5%;
+      }
+
+      .hero-content h1 {
+        font-size: 27px;
+      }
+
+      .main-layout {
+        padding: 25px 4%;
+      }
+
+      .section-card {
+        padding: 19px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <a href="index.html" class="brand">JAMAL LEARNING ACADEMY</a>
+
+    <nav class="top-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="courses.html">Courses</a>
+    </nav>
+  </header>
+
+  <div class="breadcrumb">
+    <a href="index.html">Home</a> /
+    <a href="courses.html">Courses</a> /
+    Course Details
+  </div>
+
+  <section class="course-hero">
+    <div class="hero-inner">
+
+      <div class="hero-content">
+        <span class="course-tag">PROFESSIONAL LEARNING PROGRAM</span>
+
+        <h1 id="courseTitle">Tally Prime & GST</h1>
+
+        <p id="courseDescription">
+          Build practical accounting skills with structured lessons
+          covering Tally Prime, GST, vouchers and financial reports.
+          Learn step by step from the fundamentals.
+        </p>
+
+        <div class="hero-meta">
+          <span>▶ Video Lessons</span>
+          <span>◈ Beginner Friendly</span>
+          <span>✓ Structured Curriculum</span>
+        </div>
+      </div>
+
+      <div class="preview-card">
+        <div class="preview-screen">
+          ▶
+          <span class="preview-label">COURSE PREVIEW</span>
+        </div>
+
+        <div class="preview-info">
+          <h3>Start Your Learning Journey</h3>
+          <p>
+            Enroll in this course to access its lessons
+            and learning materials.
+          </p>
+          <a href="register.html" class="enroll-btn">
+            Create Student Account →
+          </a>
+          <div class="preview-note">
+            Course access requires authorization
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <main class="main-layout">
+
+    <div class="left-column">
+
+      <section class="section-card">
+        <h2>About This Course</h2>
+        <p id="aboutText">
+          This course is designed to help students understand
+          accounting concepts and develop practical skills through
+          organized video lessons. Students will progress from
+          fundamental topics to more advanced concepts.
+        </p>
+      </section>
+
+      <section class="section-card">
+        <h2>What You Will Learn</h2>
+
+        <ul class="learning-list" id="learningList">
+          <li>Understand basic accounting concepts</li>
+          <li>Learn company creation and ledger management</li>
+          <li>Understand accounting vouchers and entries</li>
+          <li>Learn GST concepts and practical entries</li>
+          <li>Understand reports and financial statements</li>
+        </ul>
+      </section>
+
+      <section class="section-card">
+        <div class="curriculum-heading">
+          <h2>Course Curriculum</h2>
+          <span>Lessons are locked</span>
+        </div>
+
+        <div class="module">
+          <div class="module-title">
+            <strong>Module 01 — Introduction</strong>
+            <span>3 Lessons</span>
+          </div>
+
+          <div class="lesson">
+            <span class="lesson-name">01. Course Introduction</span>
+            <span class="lesson-lock">🔒 Locked</span>
+          </div>
+
+          <div class="lesson">
+            <span class="lesson-name">02. Understanding the Basics</span>
+            <span class="lesson-lock">🔒 Locked</span>
+          </div>
+
+          <div class="lesson">
+            <span class="lesson-name">03. Getting Started</span>
+            <span class="lesson-lock">🔒 Locked</span>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="module-title">
+            <strong>Module 02 — Core Concepts</strong>
+            <span>3 Lessons</span>
+          </div>
+
+          <div class="lesson">
+            <span class="lesson-name">04. Important Concepts</span>
+            <span class="lesson-lock">🔒 Locked</span>
+          </div>
+
+          <div class="lesson">
+            <span class="lesson-name">05. Practical Demonstration</span>
+            <span class="lesson-lock">🔒 Locked</span>
+          </div>
+
+          <div class="lesson">
+            <span class="lesson-name">06. Practice Session</span>
+            <span class="lesson-lock">🔒 Locked</span>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="module-title">
+            <strong>Module 03 — Advanced Learning</strong>
+            <span>3 Lessons</span>
+          </div>
+
+          <div class="lesson">
+            <span class="lesson-name">07. Advanced Topics</span>
+            <span class="lesson-lock">🔒 Locked</span>
+          </div>
+
+          <div class="lesson">
+            <span class="lesson-name">08. Real-World Examples</span>
+            <span class="lesson-lock">🔒 Locked</span>
+          </div>
+
+          <div class="lesson">
+            <span class="lesson-name">09. Final Revision</span>
+            <span class="lesson-lock">🔒 Locked</span>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+
+    <aside class="right-column">
+
+      <section class="section-card">
+        <h2>Course Information</h2>
+
+        <ul class="info-list">
+          <li>
+            <span>Course Level</span>
+            <span>Beginner</span>
+          </li>
+          <li>
+            <span>Learning Format</span>
+            <span>Video Lessons</span>
+          </li>
+          <li>
+            <span>Language</span>
+            <span>As announced</span>
+          </li>
+          <li>
+            <span>Course Access</span>
+            <span>Authorized Students</span>
+          </li>
+          <li>
+            <span>Certificate</span>
+            <span>To be announced</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section-card">
+        <h2>Course Instructor</h2>
+
+        <div class="instructor">
+          <div class="instructor-avatar">J</div>
+
+          <div>
+            <h3>Jamal Learning Academy</h3>
+            <p>Academy Learning Team</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="security-box">
+        <strong>🔒 Secure Learning Environment</strong>
+        <br><br>
+        Lessons are intended only for authorized enrolled students.
+        Actual video access will be controlled by the secure backend.
+      </div>
+
+    </aside>
+
+  </main>
+
+  <footer class="footer">
+    © 2026 Jamal Learning Academy. All Rights Reserved.
+    <br><br>
+    Learn Today. Lead Tomorrow.
+  </footer>
+
+  <script>
+    const courseData = {
+      "tally-gst": {
+        title: "Tally Prime & GST",
+        description: "Build practical accounting skills with structured lessons covering Tally Prime, GST, vouchers and financial reports."
+      },
+      "excel": {
+        title: "Advanced Excel",
+        description: "Develop spreadsheet skills, formulas, functions, data analysis and professional reporting."
+      },
+      "computer": {
+        title: "Computer Fundamentals",
+        description: "Understand computer basics, MS Word, PowerPoint, internet and essential digital skills."
+      },
+      "ssc": {
+        title: "SSC & Government Exams",
+        description: "Prepare for competitive exams with GK, reasoning, mathematics and practice sessions."
+      },
+      "autocad": {
+        title: "AutoCAD 2D Design",
+        description: "Learn drawing tools, dimensions, layers and professional 2D drafting techniques."
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const courseId = params.get("id") || "tally-gst";
+    const course = courseData[courseId] || courseData["tally-gst"];
+
+    document.getElementById("courseTitle").textContent = course.title;
+    document.getElementById("courseDescription").textContent =
+      course.description;
+    document.getElementById("aboutText").textContent =
+      course.description +
+      " The curriculum is organized into modules to support step-by-step learning.";
+  </script>
+
+</body>
+</html>
