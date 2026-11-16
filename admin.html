@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Jamal Learning Academy</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #081426;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+    .topbar {
+      background: #101f35;
+      padding: 18px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #263b56;
+    }
+
+    .brand {
+      color: #e8bd65;
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .topbar a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 35px auto;
+      padding: 0 18px;
+    }
+
+    .welcome {
+      margin-bottom: 28px;
+    }
+
+    .welcome h1 {
+      font-size: 28px;
+      margin-bottom: 9px;
+    }
+
+    .welcome p {
+      color: #aab8ca;
+      font-size: 14px;
+    }
+
+    .admin-label {
+      display: inline-block;
+      color: #e8bd65;
+      background: #332b1b;
+      border: 1px solid #68552d;
+      border-radius: 20px;
+      padding: 7px 13px;
+      font-size: 12px;
+      margin-top: 14px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+      margin-bottom: 28px;
+    }
+
+    .stat-card {
+      background: #11233c;
+      border: 1px solid #263b56;
+      border-radius: 12px;
+      padding: 22px;
+    }
+
+    .stat-card p {
+      color: #aab8ca;
+      font-size: 13px;
+      margin-bottom: 13px;
+    }
+
+    .stat-card h2 {
+      color: #e8bd65;
+      font-size: 28px;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 22px;
+    }
+
+    .panel {
+      background: #11233c;
+      border: 1px solid #263b56;
+      border-radius: 13px;
+      padding: 24px;
+      margin-bottom: 22px;
+    }
+
+    .panel h2 {
+      color: #e8bd65;
+      font-size: 19px;
+      margin-bottom: 18px;
+    }
+
+    .action-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px;
+    }
+
+    .action {
+      background: #0b192d;
+      border: 1px solid #344b68;
+      border-radius: 10px;
+      padding: 17px;
+      text-decoration: none;
+      color: #fff;
+      display: block;
+      transition: 0.2s;
+    }
+
+    .action:hover {
+      border-color: #e8bd65;
+      transform: translateY(-2px);
+    }
+
+    .action .symbol {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .action h3 {
+      font-size: 15px;
+      margin-bottom: 7px;
+    }
+
+    .action p {
+      font-size: 12px;
+      color: #aab8ca;
+      line-height: 1.5;
+    }
+
+    .activity {
+      border-bottom: 1px solid #263b56;
+      padding: 13px 0;
+      font-size: 13px;
+      color: #cbd6e5;
+      line-height: 1.5;
+    }
+
+    .activity:last-child {
+      border-bottom: none;
+    }
+
+    .activity span {
+      color: #91a3b9;
+      font-size: 11px;
+      display: block;
+      margin-top: 5px;
+    }
+
+    .notice {
+      background: #30291b;
+      border: 1px solid #69552c;
+      border-radius: 10px;
+      padding: 17px;
+      color: #f1d99e;
+      font-size: 13px;
+      line-height: 1.6;
+      margin-top: 22px;
+    }
+
+    .footer {
+      text-align: center;
+      color: #8293a9;
+      font-size: 12px;
+      padding: 25px 10px;
+    }
+
+    @media(max-width: 800px) {
+      .stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width: 480px) {
+      .brand {
+        font-size: 16px;
+      }
+
+      .welcome h1 {
+        font-size: 23px;
+      }
+
+      .action-list {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-card {
+        padding: 17px;
+      }
+
+      .stat-card h2 {
+        font-size: 23px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="brand">Jamal Learning Academy</div>
+    <a href="index.html">Logout ↗</a>
+  </header>
+
+  <main class="container">
+
+    <section class="welcome">
+      <h1>Admin Dashboard</h1>
+      <p>Welcome to your academy management panel.</p>
+      <span class="admin-label">● Administrator Panel</span>
+    </section>
+
+    <section class="stats">
+
+      <div class="stat-card">
+        <p>Total Students</p>
+        <h2>0</h2>
+      </div>
+
+      <div class="stat-card">
+        <p>Total Courses</p>
+        <h2>0</h2>
+      </div>
+
+      <div class="stat-card">
+        <p>Total Lessons</p>
+        <h2>0</h2>
+      </div>
+
+      <div class="stat-card">
+        <p>Active Enrollments</p>
+        <h2>0</h2>
+      </div>
+
+    </section>
+
+    <div class="main-grid">
+
+      <section class="panel">
+        <h2>Management Tools</h2>
+
+        <div class="action-list">
+
+          <a href="courses.html" class="action">
+            <div class="symbol">📚</div>
+            <h3>Manage Courses</h3>
+            <p>View the available courses in your academy.</p>
+          </a>
+
+          <a href="#" class="action" onclick="showNotice(event, 'Add New Course')">
+            <div class="symbol">➕</div>
+            <h3>Add New Course</h3>
+            <p>Create and publish a new course.</p>
+          </a>
+
+          <a href="#" class="action" onclick="showNotice(event, 'Upload Video Lessons')">
+            <div class="symbol">🎬</div>
+            <h3>Upload Video Lessons</h3>
+            <p>Add video lectures and study material.</p>
+          </a>
+
+          <a href="#" class="action" onclick="showNotice(event, 'Manage Students')">
+            <div class="symbol">👨‍🎓</div>
+            <h3>Manage Students</h3>
+            <p>View student accounts and enrollment details.</p>
+          </a>
+
+          <a href="#" class="action" onclick="showNotice(event, 'Manage Enrollments')">
+            <div class="symbol">📝</div>
+            <h3>Manage Enrollments</h3>
+            <p>Review and manage course enrollments.</p>
+          </a>
+
+          <a href="#" class="action" onclick="showNotice(event, 'Website Settings')">
+            <div class="symbol">⚙️</div>
+            <h3>Website Settings</h3>
+            <p>Manage academy information and settings.</p>
+          </a>
+
+        </div>
+      </section>
+
+      <aside>
+
+        <section class="panel">
+          <h2>Recent Activity</h2>
+
+          <div class="activity">
+            Admin dashboard created.
+            <span>Frontend setup</span>
+          </div>
+
+          <div class="activity">
+            Course management section added.
+            <span>Frontend setup</span>
+          </div>
+
+          <div class="activity">
+            Student management section added.
+            <span>Frontend setup</span>
+          </div>
+
+          <div class="activity">
+            Video management section added.
+            <span>Frontend setup</span>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Quick Links</h2>
+
+          <div class="activity">
+            <a href="index.html" style="color:#fff;text-decoration:none;">
+              Visit Website ↗
+            </a>
+          </div>
+
+          <div class="activity">
+            <a href="dashboard.html" style="color:#fff;text-decoration:none;">
+              Student Dashboard ↗
+            </a>
+          </div>
+
+          <div class="activity">
+            <a href="courses.html" style="color:#fff;text-decoration:none;">
+              Course Catalog ↗
+            </a>
+          </div>
+        </section>
+
+      </aside>
+
+    </div>
+
+    <div class="notice" id="notice">
+      <strong>Important:</strong> This is currently the frontend design.
+      Actual admin permissions, student records, course uploads and video
+      management will be connected securely through Firebase/backend.
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    © 2026 Jamal Learning Academy. All Rights Reserved.
+  </footer>
+
+  <script>
+    function showNotice(event, feature) {
+      event.preventDefault();
+
+      const notice = document.getElementById("notice");
+
+      notice.innerHTML =
+        "<strong>" + feature + ":</strong> This feature will be activated " +
+        "after Firebase backend integration.";
+
+      notice.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    }
+  </script>
+
+</body>
+</html>
