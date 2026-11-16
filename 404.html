@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found | Jamal Learning Academy</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #081426;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .navbar {
+      background: #101f35;
+      padding: 18px 7%;
+      border-bottom: 1px solid #263b56;
+    }
+
+    .brand {
+      color: #e8bd65;
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+    }
+
+    .error-card {
+      width: 100%;
+      max-width: 600px;
+      background: #11233c;
+      border: 1px solid #263b56;
+      border-radius: 18px;
+      padding: 45px 25px;
+      text-align: center;
+    }
+
+    .error-code {
+      color: #e8bd65;
+      font-size: 100px;
+      font-weight: bold;
+      line-height: 1.1;
+      margin-bottom: 15px;
+    }
+
+    .error-card h1 {
+      font-size: 27px;
+      margin-bottom: 15px;
+    }
+
+    .error-card p {
+      color: #aab8ca;
+      font-size: 14px;
+      line-height: 1.8;
+      max-width: 430px;
+      margin: 0 auto 25px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .primary {
+      background: #e8bd65;
+      color: #101f35;
+    }
+
+    .secondary {
+      background: #20344e;
+      border: 1px solid #344b68;
+      color: #fff;
+    }
+
+    .btn:hover {
+      opacity: 0.85;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 15px;
+      color: #8293a9;
+      font-size: 12px;
+      border-top: 1px solid #263b56;
+    }
+
+    @media(max-width: 500px) {
+      .error-code {
+        font-size: 75px;
+      }
+
+      .error-card h1 {
+        font-size: 23px;
+      }
+
+      .brand {
+        font-size: 17px;
+      }
+
+      .error-card {
+        padding: 35px 18px;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="brand">Jamal Learning Academy</div>
+  </header>
+
+  <main class="main">
+
+    <section class="error-card">
+
+      <div class="error-code">404</div>
+
+      <h1>Oops! Page Not Found</h1>
+
+      <p>
+        The page you are looking for may have been moved,
+        deleted or is temporarily unavailable.
+        Don't worry, let's get you back on track.
+      </p>
+
+      <div class="buttons">
+        <a href="index.html" class="btn primary">
+          Go to Homepage
+        </a>
+
+        <a href="courses.html" class="btn secondary">
+          Explore Courses
+        </a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 Jamal Learning Academy. All Rights Reserved.
+    <br><br>
+    Learn Today. Lead Tomorrow.
+  </footer>
+
+</body>
+</html>
