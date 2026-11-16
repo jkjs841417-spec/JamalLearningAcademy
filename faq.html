@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQs | Jamal Learning Academy</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .faq-container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    .faq-heading {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+    .faq-heading h1 {
+      color: #d6ad55;
+      font-size: 36px;
+    }
+    .faq-heading p {
+      color: #aaa;
+      margin-top: 10px;
+    }
+    .faq-item {
+      background: #111d32;
+      border: 1px solid #293952;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+    .faq-question {
+      width: 100%;
+      background: transparent;
+      color: #fff;
+      border: none;
+      padding: 20px;
+      text-align: left;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+    }
+    .faq-question span {
+      color: #d6ad55;
+      font-size: 22px;
+    }
+    .faq-answer {
+      display: none;
+      padding: 0 20px 20px;
+      color: #c4cbd6;
+      line-height: 1.7;
+    }
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+    .faq-item.active .faq-question span {
+      transform: rotate(45deg);
+    }
+    .faq-footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #ccc;
+    }
+    .faq-footer a {
+      color: #d6ad55;
+      text-decoration: none;
+    }
+    .back-home {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: #d6ad55;
+      color: #101827;
+      border-radius: 7px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="faq-container">
+
+    <div class="faq-heading">
+      <h1>Frequently Asked Questions</h1>
+      <p>Find answers to common questions about Jamal Learning Academy.</p>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        1. What is Jamal Learning Academy?
+        <span>+</span>
+      </button>
+      <div class="faq-answer">
+        Jamal Learning Academy is an online learning platform designed to help students develop practical skills through structured courses and video lessons.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        2. How can I create an account?
+        <span>+</span>
+      </button>
+      <div class="faq-answer">
+        Visit the Register page, enter your details and follow the registration instructions to create your student account.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        3. How can I log in?
+        <span>+</span>
+      </button>
+      <div class="faq-answer">
+        Open the Login page and enter your registered mobile number and password.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        4. Which courses are available?
+        <span>+</span>
+      </button>
+      <div class="faq-answer">
+        Courses planned for the academy include Tally Prime & GST, Advanced Excel, Computer Fundamentals, SSC & Government Exams, and AutoCAD 2D Design.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        5. How can I access video lectures?
+        <span>+</span>
+      </button>
+      <div class="faq-answer">
+        Video lectures will be available to students with the required course access after the course and account systems are activated.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        6. What should I do if I forget my password?
+        <span>+</span>
+      </button>
+      <div class="faq-answer">
+        Use the password recovery option when it becomes available, or contact the academy support team for assistance.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        7. Can I study using my mobile phone?
+        <span>+</span>
+      </button>
+      <div class="faq-answer">
+        Yes. The website is designed to work on mobile phones, tablets and computers.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        8. Will I receive a course certificate?
+        <span>+</span>
+      </button>
+      <div class="faq-answer">
+        Certificate availability and eligibility will depend on the course policy announced by the academy.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        9. How can I contact the academy?
+        <span>+</span>
+      </button>
+      <div class="faq-answer">
+        Visit our Contact page for available support and contact information.
+      </div>
+    </div>
+
+    <div class="faq-footer">
+      <p>Still have questions? We are here to help.</p>
+      <a href="contact.html">Contact Us</a>
+      <br>
+      <a href="index.html" class="back-home">Back to Home</a>
+    </div>
+
+  </div>
+
+  <script>
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach(item => {
+      const question = item.querySelector(".faq-question");
+
+      question.addEventListener("click", () => {
+        item.classList.toggle("active");
+      });
+    });
+  </script>
+
+</body>
+</html>
