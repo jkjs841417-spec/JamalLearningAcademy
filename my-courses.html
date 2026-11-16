@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Courses | Jamal Learning Academy</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .my-courses-container {
+      max-width: 1100px;
+      margin: 45px auto;
+      padding: 20px;
+    }
+
+    .page-heading {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .page-heading h1 {
+      color: #d6ad55;
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .page-heading p {
+      color: #aaa;
+    }
+
+    .empty-state {
+      background: #111d32;
+      border: 1px solid #34435b;
+      border-radius: 14px;
+      text-align: center;
+      padding: 45px 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .empty-icon {
+      font-size: 55px;
+      margin-bottom: 18px;
+    }
+
+    .empty-state h2 {
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .empty-state p {
+      color: #b9c2d0;
+      line-height: 1.7;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .course-button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 13px 24px;
+      background: #d6ad55;
+      color: #101827;
+      text-decoration: none;
+      border-radius: 7px;
+      font-weight: bold;
+    }
+
+    .page-links {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .page-links a {
+      color: #d6ad55;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    @media (max-width: 600px) {
+      .page-heading h1 {
+        font-size: 27px;
+      }
+
+      .empty-state {
+        padding: 35px 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="my-courses-container">
+
+    <header class="page-heading">
+      <h1>My Courses</h1>
+      <p>All your enrolled courses in one place.</p>
+    </header>
+
+    <section class="empty-state">
+
+      <div class="empty-icon">📚</div>
+
+      <h2>No Courses Enrolled Yet</h2>
+
+      <p>
+        You haven't enrolled in any courses yet.
+        Explore our courses and start learning new skills
+        with Jamal Learning Academy.
+      </p>
+
+      <a href="courses.html" class="course-button">
+        Explore All Courses
+      </a>
+
+    </section>
+
+    <nav class="page-links">
+      <a href="dashboard.html">Dashboard</a>
+      |
+      <a href="progress.html">My Progress</a>
+      |
+      <a href="index.html">Home</a>
+    </nav>
+
+  </main>
+
+</body>
+</html>
