@@ -1,0 +1,723 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101a35">
+
+  <title>Video Lessons | Jamal Learning Academy</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f5fa;
+      color: #17233f;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .topbar {
+      min-height: 70px;
+      background: #101a35;
+      padding: 14px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .brand {
+      color: #e5b85c;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .top-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .top-links a {
+      color: #dbe2f0;
+      font-size: 13px;
+    }
+
+    .top-links a:hover {
+      color: #e5b85c;
+    }
+
+    .breadcrumb {
+      max-width: 1300px;
+      margin: auto;
+      padding: 20px 4%;
+      font-size: 12px;
+      color: #8791a3;
+    }
+
+    .breadcrumb a {
+      color: #a77b2b;
+    }
+
+    .page-heading {
+      max-width: 1300px;
+      margin: auto;
+      padding: 0 4% 22px;
+    }
+
+    .page-heading h1 {
+      font-size: 23px;
+      margin-bottom: 8px;
+      color: #14203c;
+    }
+
+    .page-heading p {
+      color: #8791a3;
+      font-size: 13px;
+    }
+
+    .learning-layout {
+      max-width: 1300px;
+      margin: auto;
+      padding: 0 4% 40px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(280px, .8fr);
+      gap: 23px;
+      align-items: start;
+    }
+
+    .player-card {
+      background: #fff;
+      border: 1px solid #e7ebf2;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 7px 25px rgba(20,32,60,.05);
+    }
+
+    .video-screen {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background:
+        radial-gradient(circle at center, rgba(229,184,92,.12), transparent 38%),
+        linear-gradient(135deg,#101a35,#1d3156);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #f0d18c;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .screen-lock {
+      width: 67px;
+      height: 67px;
+      border-radius: 50%;
+      background: rgba(229,184,92,.13);
+      border: 1px solid rgba(229,184,92,.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 18px;
+    }
+
+    .video-screen h2 {
+      color: #fff;
+      font-size: 19px;
+      margin-bottom: 9px;
+    }
+
+    .video-screen p {
+      color: #bdc6d8;
+      font-size: 12px;
+      line-height: 1.7;
+      max-width: 360px;
+    }
+
+    .player-label {
+      position: absolute;
+      top: 17px;
+      left: 17px;
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: #e5b85c;
+      background: rgba(0,0,0,.2);
+      padding: 7px 10px;
+      border-radius: 5px;
+    }
+
+    .player-controls {
+      background: #17233f;
+      color: #dbe2f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 18px;
+      font-size: 12px;
+    }
+
+    .control-status {
+      color: #e5b85c;
+    }
+
+    .lesson-info {
+      padding: 23px;
+    }
+
+    .lesson-info h2 {
+      font-size: 19px;
+      color: #14203c;
+      margin-bottom: 11px;
+    }
+
+    .lesson-info p {
+      color: #7b879a;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .lesson-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 17px;
+      margin-top: 16px;
+      color: #8a94a5;
+      font-size: 11px;
+    }
+
+    .lesson-navigation {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .nav-btn {
+      padding: 11px 16px;
+      border: 1px solid #dce2ec;
+      background: #fff;
+      color: #293957;
+      border-radius: 8px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .nav-btn.next {
+      background: #101a35;
+      border-color: #101a35;
+      color: #f0d18c;
+    }
+
+    .lesson-sidebar {
+      background: #fff;
+      border: 1px solid #e7ebf2;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 7px 25px rgba(20,32,60,.05);
+    }
+
+    .sidebar-header {
+      background: #101a35;
+      padding: 21px;
+      color: #fff;
+    }
+
+    .sidebar-header h2 {
+      font-size: 17px;
+      color: #f0d18c;
+      margin-bottom: 9px;
+    }
+
+    .sidebar-header p {
+      color: #bdc6d8;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .progress-area {
+      padding: 17px 20px;
+      border-bottom: 1px solid #edf0f5;
+    }
+
+    .progress-text {
+      display: flex;
+      justify-content: space-between;
+      color: #7c8799;
+      font-size: 11px;
+      margin-bottom: 9px;
+    }
+
+    .progress-bar {
+      height: 7px;
+      background: #edf0f5;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: #d5a747;
+    }
+
+    .chapter-title {
+      padding: 15px 18px;
+      background: #f8f9fc;
+      border-bottom: 1px solid #edf0f5;
+      color: #293957;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .lesson-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 15px 17px;
+      border-bottom: 1px solid #edf0f5;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .lesson-item:hover {
+      background: #f8f9fc;
+    }
+
+    .lesson-item.active {
+      background: #fff8e9;
+      border-left: 3px solid #d5a747;
+    }
+
+    .lesson-item:last-child {
+      border-bottom: none;
+    }
+
+    .lesson-item h3 {
+      font-size: 12px;
+      color: #35425c;
+      margin-bottom: 6px;
+    }
+
+    .lesson-item p {
+      font-size: 10px;
+      color: #919bad;
+    }
+
+    .lesson-lock {
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    .sidebar-note {
+      margin: 16px;
+      padding: 14px;
+      background: #fff8e9;
+      border: 1px solid #f0dfb9;
+      border-radius: 9px;
+      color: #80622b;
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .notes-card {
+      background: #fff;
+      border: 1px solid #e7ebf2;
+      border-radius: 14px;
+      padding: 22px;
+      margin-top: 22px;
+    }
+
+    .notes-card h2 {
+      font-size: 17px;
+      color: #14203c;
+      margin-bottom: 12px;
+    }
+
+    .notes-card p {
+      font-size: 12px;
+      color: #8791a3;
+      line-height: 1.7;
+    }
+
+    .footer {
+      background: #101a35;
+      color: #aab4c7;
+      padding: 22px;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    @media(max-width:900px) {
+      .learning-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width:600px) {
+      .topbar {
+        padding: 15px 4%;
+      }
+
+      .brand {
+        font-size: 14px;
+      }
+
+      .top-links {
+        gap: 11px;
+      }
+
+      .top-links a {
+        font-size: 11px;
+      }
+
+      .page-heading h1 {
+        font-size: 20px;
+      }
+
+      .video-screen h2 {
+        font-size: 16px;
+      }
+
+      .video-screen p {
+        font-size: 11px;
+      }
+
+      .lesson-info {
+        padding: 18px;
+      }
+
+      .player-controls {
+        padding: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <a href="index.html" class="brand">JAMAL LEARNING ACADEMY</a>
+
+    <nav class="top-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="courses.html">Courses</a>
+      <a href="profile.html">Profile</a>
+    </nav>
+  </header>
+
+  <div class="breadcrumb">
+    <a href="dashboard.html">Dashboard</a> /
+    <a href="courses.html">Courses</a> /
+    Video Lessons
+  </div>
+
+  <section class="page-heading">
+    <h1 id="pageCourseTitle">Tally Prime & GST</h1>
+    <p>Your learning classroom — continue where you left off.</p>
+  </section>
+
+  <main class="learning-layout">
+
+    <div class="main-column">
+
+      <section class="player-card">
+
+        <div class="video-screen">
+
+          <span class="player-label">SECURE LEARNING PLAYER</span>
+
+          <div class="screen-lock">🔒</div>
+
+          <h2>Lesson Access Restricted</h2>
+
+          <p>
+            Please sign in and verify your course enrollment
+            to access this video lesson.
+          </p>
+
+        </div>
+
+        <div class="player-controls">
+          <span>▶ Video Player</span>
+          <span class="control-status">Access not verified</span>
+        </div>
+
+        <div class="lesson-info">
+          <h2 id="lessonTitle">01. Course Introduction</h2>
+
+          <p id="lessonDescription">
+            Begin your learning journey with an introduction
+            to the course, its learning objectives and structure.
+          </p>
+
+          <div class="lesson-meta">
+            <span>◷ Lesson duration: To be announced</span>
+            <span>◈ Video lesson</span>
+            <span>🔒 Authorized access</span>
+          </div>
+
+          <div class="lesson-navigation">
+            <button class="nav-btn" id="previousBtn" type="button">
+              ← Previous Lesson
+            </button>
+
+            <button class="nav-btn next" id="nextBtn" type="button">
+              Next Lesson →
+            </button>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="notes-card">
+        <h2>Lesson Information</h2>
+
+        <p>
+          Lesson notes, study materials, downloadable resources
+          and important announcements will be available here
+          when provided by the academy.
+        </p>
+      </section>
+
+    </div>
+
+    <aside class="lesson-sidebar">
+
+      <div class="sidebar-header">
+        <h2>Course Content</h2>
+        <p id="sidebarCourseTitle">
+          Tally Prime & GST — Complete Learning Program
+        </p>
+      </div>
+
+      <div class="progress-area">
+        <div class="progress-text">
+          <span>Your Progress</span>
+          <strong>0%</strong>
+        </div>
+
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+      </div>
+
+      <div class="chapter-title">
+        MODULE 01 — INTRODUCTION
+      </div>
+
+      <div class="lesson-item active" data-index="0">
+        <div>
+          <h3>01. Course Introduction</h3>
+          <p>Lesson 01</p>
+        </div>
+        <span class="lesson-lock">🔒</span>
+      </div>
+
+      <div class="lesson-item" data-index="1">
+        <div>
+          <h3>02. Understanding the Basics</h3>
+          <p>Lesson 02</p>
+        </div>
+        <span class="lesson-lock">🔒</span>
+      </div>
+
+      <div class="lesson-item" data-index="2">
+        <div>
+          <h3>03. Getting Started</h3>
+          <p>Lesson 03</p>
+        </div>
+        <span class="lesson-lock">🔒</span>
+      </div>
+
+      <div class="chapter-title">
+        MODULE 02 — CORE CONCEPTS
+      </div>
+
+      <div class="lesson-item" data-index="3">
+        <div>
+          <h3>04. Important Concepts</h3>
+          <p>Lesson 04</p>
+        </div>
+        <span class="lesson-lock">🔒</span>
+      </div>
+
+      <div class="lesson-item" data-index="4">
+        <div>
+          <h3>05. Practical Demonstration</h3>
+          <p>Lesson 05</p>
+        </div>
+        <span class="lesson-lock">🔒</span>
+      </div>
+
+      <div class="lesson-item" data-index="5">
+        <div>
+          <h3>06. Practice Session</h3>
+          <p>Lesson 06</p>
+        </div>
+        <span class="lesson-lock">🔒</span>
+      </div>
+
+      <div class="chapter-title">
+        MODULE 03 — ADVANCED LEARNING
+      </div>
+
+      <div class="lesson-item" data-index="6">
+        <div>
+          <h3>07. Advanced Topics</h3>
+          <p>Lesson 07</p>
+        </div>
+        <span class="lesson-lock">🔒</span>
+      </div>
+
+      <div class="lesson-item" data-index="7">
+        <div>
+          <h3>08. Real-World Examples</h3>
+          <p>Lesson 08</p>
+        </div>
+        <span class="lesson-lock">🔒</span>
+      </div>
+
+      <div class="lesson-item" data-index="8">
+        <div>
+          <h3>09. Final Revision</h3>
+          <p>Lesson 09</p>
+        </div>
+        <span class="lesson-lock">🔒</span>
+      </div>
+
+      <div class="sidebar-note">
+        <strong>🔒 Secure Course Access</strong>
+        <br>
+        Only enrolled and authorized students will be able
+        to watch protected lessons after backend integration.
+      </div>
+
+    </aside>
+
+  </main>
+
+  <footer class="footer">
+    © 2026 Jamal Learning Academy. All Rights Reserved.
+    <br><br>
+    Learn Today. Lead Tomorrow.
+  </footer>
+
+  <script>
+    const lessons = [
+      {
+        title: "01. Course Introduction",
+        description: "Understand the course structure, learning objectives and what you will learn."
+      },
+      {
+        title: "02. Understanding the Basics",
+        description: "Learn the basic concepts and important foundations of this course."
+      },
+      {
+        title: "03. Getting Started",
+        description: "Get familiar with the tools, learning process and practical workflow."
+      },
+      {
+        title: "04. Important Concepts",
+        description: "Explore the important concepts and key topics covered in this module."
+      },
+      {
+        title: "05. Practical Demonstration",
+        description: "Understand how concepts are applied through practical demonstrations."
+      },
+      {
+        title: "06. Practice Session",
+        description: "Review the concepts and prepare for practical exercises."
+      },
+      {
+        title: "07. Advanced Topics",
+        description: "Explore more advanced topics and develop deeper subject knowledge."
+      },
+      {
+        title: "08. Real-World Examples",
+        description: "Understand how your learning can be applied in real-world situations."
+      },
+      {
+        title: "09. Final Revision",
+        description: "Revise the key lessons and review the learning objectives."
+      }
+    ];
+
+    const params = new URLSearchParams(window.location.search);
+    const courseId = params.get("course") || "tally-gst";
+    const lessonIndex = Number(params.get("lesson") || 0);
+
+    const courseNames = {
+      "tally-gst": "Tally Prime & GST",
+      "excel": "Advanced Excel",
+      "computer": "Computer Fundamentals",
+      "ssc": "SSC & Government Exams",
+      "autocad": "AutoCAD 2D Design"
+    };
+
+    const courseName = courseNames[courseId] || courseNames["tally-gst"];
+
+    document.getElementById("pageCourseTitle").textContent = courseName;
+    document.getElementById("sidebarCourseTitle").textContent =
+      courseName + " — Complete Learning Program";
+
+    let currentLesson = Number.isInteger(lessonIndex) &&
+      lessonIndex >= 0 && lessonIndex < lessons.length
+      ? lessonIndex : 0;
+
+    function updateLesson() {
+      document.getElementById("lessonTitle").textContent =
+        lessons[currentLesson].title;
+
+      document.getElementById("lessonDescription").textContent =
+        lessons[currentLesson].description;
+
+      document.querySelectorAll(".lesson-item").forEach((item, index) => {
+        item.classList.toggle("active", index === currentLesson);
+      });
+
+      document.getElementById("previousBtn").disabled =
+        currentLesson === 0;
+
+      document.getElementById("nextBtn").disabled =
+        currentLesson === lessons.length - 1;
+    }
+
+    document.getElementById("previousBtn").addEventListener("click", () => {
+      if (currentLesson > 0) {
+        currentLesson--;
+        updateLesson();
+      }
+    });
+
+    document.getElementById("nextBtn").addEventListener("click", () => {
+      if (currentLesson < lessons.length - 1) {
+        currentLesson++;
+        updateLesson();
+      }
+    });
+
+    document.querySelectorAll(".lesson-item").forEach(item => {
+      item.addEventListener("click", () => {
+        currentLesson = Number(item.dataset.index);
+        updateLesson();
+      });
+    });
+
+    updateLesson();
+  </script>
+
+</body>
+</html>
