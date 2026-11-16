@@ -1,0 +1,515 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101a35">
+  <title>Courses | Jamal Learning Academy</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family:Arial,sans-serif;
+      background:#f4f6fb;
+      color:#17233f;
+    }
+
+    a { text-decoration:none; }
+
+    .topbar {
+      background:#101a35;
+      min-height:72px;
+      padding:15px 6%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:15px;
+    }
+
+    .brand {
+      color:#e5b85c;
+      font-size:19px;
+      font-weight:bold;
+      letter-spacing:.4px;
+    }
+
+    .top-links {
+      display:flex;
+      gap:22px;
+      align-items:center;
+    }
+
+    .top-links a {
+      color:#dbe2f0;
+      font-size:13px;
+    }
+
+    .top-links a:hover,
+    .top-links a.active {
+      color:#e5b85c;
+    }
+
+    .page-hero {
+      background:linear-gradient(120deg,#101a35,#293f6a);
+      padding:55px 7%;
+      color:#fff;
+    }
+
+    .page-hero h1 {
+      color:#f0d18c;
+      font-size:32px;
+      margin-bottom:13px;
+    }
+
+    .page-hero p {
+      max-width:600px;
+      color:#d4dbea;
+      line-height:1.7;
+      font-size:14px;
+    }
+
+    .main {
+      max-width:1200px;
+      margin:auto;
+      padding:38px 5%;
+    }
+
+    .heading-row {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:15px;
+      margin-bottom:24px;
+    }
+
+    .heading-row h2 {
+      font-size:23px;
+      color:#14203c;
+    }
+
+    .course-count {
+      color:#8b95a5;
+      font-size:13px;
+    }
+
+    .search-box {
+      width:100%;
+      max-width:420px;
+      padding:14px 16px;
+      margin-bottom:26px;
+      border:1px solid #dce2ed;
+      border-radius:10px;
+      background:#fff;
+      outline:none;
+      font-size:14px;
+    }
+
+    .search-box:focus {
+      border-color:#d5a747;
+      box-shadow:0 0 0 3px rgba(213,167,71,.12);
+    }
+
+    .filters {
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom:25px;
+    }
+
+    .filter-btn {
+      border:1px solid #dce2ed;
+      background:#fff;
+      color:#68748a;
+      padding:10px 17px;
+      border-radius:25px;
+      font-size:12px;
+      cursor:pointer;
+      transition:.2s;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background:#101a35;
+      color:#f0d18c;
+      border-color:#101a35;
+    }
+
+    .course-grid {
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:21px;
+    }
+
+    .course-card {
+      background:#fff;
+      border:1px solid #e8edf4;
+      border-radius:15px;
+      overflow:hidden;
+      box-shadow:0 7px 23px rgba(20,32,60,.045);
+      transition:.25s;
+    }
+
+    .course-card:hover {
+      transform:translateY(-5px);
+      box-shadow:0 12px 28px rgba(20,32,60,.09);
+    }
+
+    .course-banner {
+      height:145px;
+      background:linear-gradient(130deg,#101a35,#344f80);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#f0d18c;
+      font-size:43px;
+      position:relative;
+    }
+
+    .category-tag {
+      position:absolute;
+      top:13px;
+      left:13px;
+      background:rgba(255,255,255,.13);
+      border:1px solid rgba(255,255,255,.2);
+      color:#fff;
+      padding:6px 10px;
+      font-size:10px;
+      border-radius:20px;
+    }
+
+    .course-body {
+      padding:21px;
+    }
+
+    .course-body h3 {
+      font-size:17px;
+      color:#17233f;
+      margin-bottom:10px;
+    }
+
+    .course-body p {
+      color:#8490a3;
+      font-size:12px;
+      line-height:1.7;
+      min-height:61px;
+      margin-bottom:17px;
+    }
+
+    .course-details {
+      display:flex;
+      justify-content:space-between;
+      gap:8px;
+      padding:13px 0;
+      border-top:1px solid #edf0f5;
+      border-bottom:1px solid #edf0f5;
+      color:#788398;
+      font-size:11px;
+    }
+
+    .course-action {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      margin-top:17px;
+    }
+
+    .course-status {
+      color:#a77b2b;
+      font-size:11px;
+      font-weight:bold;
+    }
+
+    .view-btn {
+      background:#101a35;
+      color:#f0d18c;
+      padding:10px 14px;
+      border-radius:8px;
+      font-size:12px;
+      font-weight:bold;
+    }
+
+    .view-btn:hover {
+      background:#263d69;
+    }
+
+    .empty-message {
+      display:none;
+      text-align:center;
+      color:#8791a3;
+      background:#fff;
+      border:1px dashed #ccd4e1;
+      border-radius:12px;
+      padding:30px;
+      grid-column:1/-1;
+      font-size:13px;
+    }
+
+    .notice {
+      margin-top:32px;
+      background:#fff8e9;
+      border:1px solid #f0dfb9;
+      border-radius:12px;
+      padding:17px;
+      color:#80622b;
+      font-size:12px;
+      line-height:1.7;
+    }
+
+    .footer {
+      background:#101a35;
+      color:#aab4c7;
+      text-align:center;
+      padding:22px;
+      font-size:12px;
+      margin-top:35px;
+    }
+
+    @media(max-width:900px) {
+      .course-grid {
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+
+    @media(max-width:600px) {
+      .topbar { padding:17px 4%; }
+      .brand { font-size:15px; }
+      .top-links { gap:12px; }
+      .top-links a { font-size:11px; }
+      .page-hero { padding:40px 6%; }
+      .page-hero h1 { font-size:26px; }
+      .main { padding:28px 4%; }
+      .heading-row h2 { font-size:19px; }
+      .course-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <a href="index.html" class="brand">JAMAL LEARNING ACADEMY</a>
+
+    <nav class="top-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="courses.html" class="active">Courses</a>
+      <a href="profile.html">Profile</a>
+    </nav>
+  </header>
+
+  <section class="page-hero">
+    <h1>Explore Our Courses</h1>
+    <p>
+      Discover new skills, learn from structured lessons
+      and move closer to your career goals with Jamal Learning Academy.
+    </p>
+  </section>
+
+  <main class="main">
+
+    <div class="heading-row">
+      <h2>Available Courses</h2>
+      <span class="course-count">Learning starts here</span>
+    </div>
+
+    <input
+      type="search"
+      id="courseSearch"
+      class="search-box"
+      placeholder="Search courses..."
+      aria-label="Search courses"
+    >
+
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All Courses</button>
+      <button class="filter-btn" data-filter="accounting">Accounting</button>
+      <button class="filter-btn" data-filter="computer">Computer</button>
+      <button class="filter-btn" data-filter="exams">Government Exams</button>
+      <button class="filter-btn" data-filter="design">Design</button>
+    </div>
+
+    <section class="course-grid" id="courseGrid">
+
+      <article class="course-card" data-category="accounting">
+        <div class="course-banner">
+          <span class="category-tag">Accounting</span>
+          ₹
+        </div>
+        <div class="course-body">
+          <h3>Tally Prime & GST</h3>
+          <p>
+            Learn accounting fundamentals, company creation,
+            vouchers, GST entries and financial reports.
+          </p>
+          <div class="course-details">
+            <span>▶ Video Lessons</span>
+            <span>Beginner Level</span>
+          </div>
+          <div class="course-action">
+            <span class="course-status">Enrollment required</span>
+            <a href="course-detail.html?id=tally-gst" class="view-btn">View Course →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card" data-category="accounting">
+        <div class="course-banner">
+          <span class="category-tag">Accounting</span>
+          ▤
+        </div>
+        <div class="course-body">
+          <h3>Advanced Excel</h3>
+          <p>
+            Develop spreadsheet skills, formulas, functions,
+            data analysis and professional reporting.
+          </p>
+          <div class="course-details">
+            <span>▶ Video Lessons</span>
+            <span>Beginner Level</span>
+          </div>
+          <div class="course-action">
+            <span class="course-status">Enrollment required</span>
+            <a href="course-detail.html?id=excel" class="view-btn">View Course →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card" data-category="computer">
+        <div class="course-banner">
+          <span class="category-tag">Computer</span>
+          💻
+        </div>
+        <div class="course-body">
+          <h3>Computer Fundamentals</h3>
+          <p>
+            Understand computer basics, MS Word, PowerPoint,
+            internet and essential digital skills.
+          </p>
+          <div class="course-details">
+            <span>▶ Video Lessons</span>
+            <span>Beginner Level</span>
+          </div>
+          <div class="course-action">
+            <span class="course-status">Enrollment required</span>
+            <a href="course-detail.html?id=computer" class="view-btn">View Course →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card" data-category="exams">
+        <div class="course-banner">
+          <span class="category-tag">Government Exams</span>
+          ★
+        </div>
+        <div class="course-body">
+          <h3>SSC & Government Exams</h3>
+          <p>
+            Prepare for competitive exams with GK, reasoning,
+            mathematics and practice sessions.
+          </p>
+          <div class="course-details">
+            <span>Practice & Lessons</span>
+            <span>Exam Preparation</span>
+          </div>
+          <div class="course-action">
+            <span class="course-status">Enrollment required</span>
+            <a href="course-detail.html?id=ssc" class="view-btn">View Course →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card" data-category="design">
+        <div class="course-banner">
+          <span class="category-tag">Design</span>
+          ◈
+        </div>
+        <div class="course-body">
+          <h3>AutoCAD 2D Design</h3>
+          <p>
+            Learn drawing tools, dimensions, layers and
+            professional 2D drafting techniques.
+          </p>
+          <div class="course-details">
+            <span>▶ Video Lessons</span>
+            <span>Beginner Level</span>
+          </div>
+          <div class="course-action">
+            <span class="course-status">Enrollment required</span>
+            <a href="course-detail.html?id=autocad" class="view-btn">View Course →</a>
+          </div>
+        </div>
+      </article>
+
+      <div class="empty-message" id="emptyMessage">
+        No matching courses found. Try another search.
+      </div>
+
+    </section>
+
+    <div class="notice">
+      <strong>Course Access & Security</strong><br>
+      Course enrollment, lesson access and video permissions
+      will be verified through the secure backend after Firebase integration.
+      Course cards on this page are currently sample listings.
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    © 2026 Jamal Learning Academy. All Rights Reserved.
+    <br><br>
+    Learn Today. Lead Tomorrow.
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById("courseSearch");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const courseCards = document.querySelectorAll(".course-card");
+    const emptyMessage = document.getElementById("emptyMessage");
+
+    let activeFilter = "all";
+
+    function filterCourses() {
+      const searchText = searchInput.value.toLowerCase().trim();
+      let visibleCount = 0;
+
+      courseCards.forEach(card => {
+        const category = card.dataset.category;
+        const text = card.innerText.toLowerCase();
+
+        const matchesFilter =
+          activeFilter === "all" || category === activeFilter;
+
+        const matchesSearch = text.includes(searchText);
+        const show = matchesFilter && matchesSearch;
+
+        card.style.display = show ? "block" : "none";
+
+        if (show) visibleCount++;
+      });
+
+      emptyMessage.style.display =
+        visibleCount === 0 ? "block" : "none";
+    }
+
+    searchInput.addEventListener("input", filterCourses);
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach(item =>
+          item.classList.remove("active")
+        );
+
+        button.classList.add("active");
+        activeFilter = button.dataset.filter;
+        filterCourses();
+      });
+    });
+  </script>
+
+</body>
+</html>
