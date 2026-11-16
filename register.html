@@ -1,0 +1,402 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101a35">
+
+  <title>Student Registration | Jamal Learning Academy</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(212,165,73,.12), transparent 30%),
+        radial-gradient(circle at 85% 80%, rgba(45,75,130,.22), transparent 35%),
+        #101a35;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .register-header {
+      padding: 22px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      color: #e5b85c;
+      text-decoration: none;
+      font-size: 21px;
+      font-weight: bold;
+      letter-spacing: .4px;
+    }
+
+    .back-home {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      padding: 10px 17px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 25px;
+      transition: .3s;
+    }
+
+    .back-home:hover {
+      background: #d6aa50;
+      color: #101a35;
+    }
+
+    .register-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px 18px 50px;
+    }
+
+    .register-card {
+      width: 100%;
+      max-width: 470px;
+      padding: 38px 35px;
+      border-radius: 22px;
+      background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.11),
+        rgba(255,255,255,.045)
+      );
+      border: 1px solid rgba(229,184,92,.28);
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+      backdrop-filter: blur(14px);
+    }
+
+    .register-icon {
+      width: 62px;
+      height: 62px;
+      margin: 0 auto 18px;
+      border-radius: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 28px;
+      color: #101a35;
+      background: linear-gradient(135deg,#f2d28c,#c89535);
+    }
+
+    .register-card h1 {
+      text-align: center;
+      font-size: 27px;
+      margin-bottom: 9px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #bdc6d8;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 27px;
+    }
+
+    .input-group {
+      margin-bottom: 18px;
+    }
+
+    .input-group label {
+      display: block;
+      color: #e5b85c;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 9px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 14px 15px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.17);
+      outline: none;
+      background: rgba(8,17,38,.65);
+      color: #fff;
+      font-size: 15px;
+      transition: .3s;
+    }
+
+    .input-group input::placeholder {
+      color: #8995aa;
+    }
+
+    .input-group input:focus {
+      border-color: #e5b85c;
+      box-shadow: 0 0 0 3px rgba(229,184,92,.12);
+    }
+
+    .phone-row {
+      display: flex;
+      gap: 9px;
+    }
+
+    .country-code {
+      width: 75px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      background: rgba(8,17,38,.65);
+      border: 1px solid rgba(255,255,255,.17);
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .phone-row input {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .otp-btn {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d6aa50;
+      border-radius: 9px;
+      background: transparent;
+      color: #e5b85c;
+      font-weight: bold;
+      font-size: 13px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .otp-btn:hover {
+      background: rgba(229,184,92,.1);
+    }
+
+    .terms {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+      margin: 20px 0;
+      color: #bdc6d8;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .terms input {
+      margin-top: 3px;
+      accent-color: #e5b85c;
+    }
+
+    .terms a {
+      color: #e5b85c;
+      text-decoration: none;
+    }
+
+    .create-btn {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg,#f0d18c,#c89535);
+      color: #101a35;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .create-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 9px 22px rgba(214,170,80,.25);
+    }
+
+    .login-text {
+      text-align: center;
+      margin-top: 23px;
+      color: #bdc6d8;
+      font-size: 14px;
+    }
+
+    .login-text a {
+      color: #e5b85c;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .security-note {
+      text-align: center;
+      margin-top: 22px;
+      color: #8491a8;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .register-footer {
+      text-align: center;
+      padding: 18px;
+      color: #8491a8;
+      font-size: 12px;
+    }
+
+    @media(max-width:480px) {
+      .register-header {
+        padding: 19px 5%;
+      }
+
+      .brand {
+        font-size: 16px;
+      }
+
+      .register-card {
+        padding: 32px 22px;
+      }
+
+      .register-card h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="register-header">
+    <a href="index.html" class="brand">JAMAL LEARNING ACADEMY</a>
+    <a href="index.html" class="back-home">← Home</a>
+  </header>
+
+  <main class="register-wrapper">
+
+    <section class="register-card">
+
+      <div class="register-icon">✦</div>
+
+      <h1>Create Your Account</h1>
+
+      <p class="subtitle">
+        Join Jamal Learning Academy and start your learning journey.
+      </p>
+
+      <form id="registerForm">
+
+        <div class="input-group">
+          <label for="fullName">Full Name</label>
+          <input
+            type="text"
+            id="fullName"
+            name="fullName"
+            placeholder="Enter your full name"
+            autocomplete="name"
+            required
+          >
+        </div>
+
+        <div class="input-group">
+          <label for="mobile">Mobile Number</label>
+
+          <div class="phone-row">
+            <div class="country-code">+91</div>
+
+            <input
+              type="tel"
+              id="mobile"
+              name="mobile"
+              placeholder="10-digit mobile number"
+              maxlength="10"
+              inputmode="numeric"
+              autocomplete="tel-national"
+              required
+            >
+          </div>
+
+          <button type="button" class="otp-btn" id="sendOtpBtn">
+            Send Verification OTP
+          </button>
+        </div>
+
+        <div class="input-group">
+          <label for="otp">Verification OTP</label>
+          <input
+            type="text"
+            id="otp"
+            name="otp"
+            placeholder="Enter 6-digit OTP"
+            maxlength="6"
+            inputmode="numeric"
+            autocomplete="one-time-code"
+            required
+          >
+        </div>
+
+        <div class="input-group">
+          <label for="password">Create Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Create a strong password"
+            autocomplete="new-password"
+            minlength="8"
+            required
+          >
+        </div>
+
+        <div class="input-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="Enter password again"
+            autocomplete="new-password"
+            minlength="8"
+            required
+          >
+        </div>
+
+        <label class="terms">
+          <input type="checkbox" id="terms" required>
+          <span>
+            I agree to the
+            <a href="#">Terms & Conditions</a>
+            and
+            <a href="#">Privacy Policy</a>.
+          </span>
+        </label>
+
+        <button type="submit" class="create-btn">
+          Create My Account →
+        </button>
+
+      </form>
+
+      <p class="login-text">
+        Already have an account?
+        <a href="login.html">Login Here</a>
+      </p>
+
+      <p class="security-note">
+        Your account security matters to us.<br>
+        Jamal Learning Academy © 2026
+      </p>
+
+    </section>
+
+  </main>
+
+  <footer class="register-footer">
+    Learn Today. Lead Tomorrow.
+  </footer>
+
+</body>
+</html>
