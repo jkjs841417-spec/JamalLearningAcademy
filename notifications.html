@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifications | Jamal Learning Academy</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .notification-container {
+      max-width: 900px;
+      margin: 45px auto;
+      padding: 20px;
+    }
+
+    .notification-header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .notification-header h1 {
+      color: #d6ad55;
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .notification-header p {
+      color: #aaa;
+    }
+
+    .notification-list {
+      display: grid;
+      gap: 15px;
+    }
+
+    .notification-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: #111d32;
+      border: 1px solid #34435b;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .notification-icon {
+      width: 45px;
+      height: 45px;
+      min-width: 45px;
+      display: grid;
+      place-items: center;
+      background: #26364c;
+      border-radius: 50%;
+      font-size: 21px;
+    }
+
+    .notification-content {
+      flex: 1;
+    }
+
+    .notification-content h3 {
+      color: #fff;
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .notification-content p {
+      color: #b9c2d0;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .notification-time {
+      display: block;
+      color: #d6ad55;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    .new-label {
+      display: inline-block;
+      background: #d6ad55;
+      color: #101827;
+      padding: 3px 9px;
+      border-radius: 20px;
+      font-size: 10px;
+      margin-left: 7px;
+    }
+
+    .notification-footer {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .notification-footer a {
+      display: inline-block;
+      background: #d6ad55;
+      color: #101827;
+      padding: 12px 22px;
+      border-radius: 7px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      .notification-header h1 {
+        font-size: 27px;
+      }
+
+      .notification-card {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="notification-container">
+
+    <header class="notification-header">
+      <h1>Notifications</h1>
+      <p>Stay updated with the latest academy announcements.</p>
+    </header>
+
+    <section class="notification-list">
+
+      <article class="notification-card">
+        <div class="notification-icon">📢</div>
+        <div class="notification-content">
+          <h3>Welcome to Jamal Learning Academy
+            <span class="new-label">NEW</span>
+          </h3>
+          <p>
+            Welcome to our learning platform. Start exploring courses
+            and take the first step towards improving your skills.
+          </p>
+          <span class="notification-time">Academy Announcement</span>
+        </div>
+      </article>
+
+      <article class="notification-card">
+        <div class="notification-icon">📚</div>
+        <div class="notification-content">
+          <h3>Explore Our Courses</h3>
+          <p>
+            Explore courses in Tally Prime, GST, Advanced Excel,
+            Computer Fundamentals, SSC Exams and AutoCAD.
+          </p>
+          <span class="notification-time">Course Information</span>
+        </div>
+      </article>
+
+      <article class="notification-card">
+        <div class="notification-icon">🎓</div>
+        <div class="notification-content">
+          <h3>Certificate Updates</h3>
+          <p>
+            Course completion certificates will be available
+            according to the academy's certificate policy.
+          </p>
+          <span class="notification-time">Student Information</span>
+        </div>
+      </article>
+
+    </section>
+
+    <div class="notification-footer">
+      <a href="dashboard.html">Back to Dashboard</a>
+    </div>
+
+  </main>
+
+</body>
+</html>
