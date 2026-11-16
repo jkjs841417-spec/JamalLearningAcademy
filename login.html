@@ -1,0 +1,300 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101a35">
+  <title>Student Login | Jamal Learning Academy</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(212,165,73,.12), transparent 30%),
+        radial-gradient(circle at 85% 80%, rgba(45,75,130,.22), transparent 35%),
+        #101a35;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .login-header {
+      width: 100%;
+      padding: 22px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-size: 21px;
+      font-weight: bold;
+      color: #e5b85c;
+      text-decoration: none;
+      letter-spacing: .4px;
+    }
+
+    .back-home {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      border: 1px solid rgba(255,255,255,.25);
+      padding: 10px 17px;
+      border-radius: 25px;
+      transition: .3s;
+    }
+
+    .back-home:hover {
+      background: #d6aa50;
+      color: #101a35;
+    }
+
+    .login-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 18px 55px;
+    }
+
+    .login-card {
+      width: 100%;
+      max-width: 430px;
+      padding: 42px 35px;
+      border-radius: 22px;
+      background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.11),
+        rgba(255,255,255,.045)
+      );
+      border: 1px solid rgba(229,184,92,.28);
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+      backdrop-filter: blur(14px);
+    }
+
+    .login-icon {
+      width: 65px;
+      height: 65px;
+      margin: 0 auto 20px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 29px;
+      color: #101a35;
+      background: linear-gradient(135deg,#f2d28c,#c89535);
+      box-shadow: 0 8px 25px rgba(214,170,80,.2);
+    }
+
+    .login-card h1 {
+      text-align: center;
+      font-size: 27px;
+      margin-bottom: 9px;
+      color: #fff;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #bdc6d8;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 13px;
+      color: #e5b85c;
+      margin-bottom: 9px;
+      font-weight: 600;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 15px 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.17);
+      outline: none;
+      background: rgba(8,17,38,.65);
+      color: #fff;
+      font-size: 15px;
+      transition: .3s;
+    }
+
+    .input-group input::placeholder {
+      color: #8995aa;
+    }
+
+    .input-group input:focus {
+      border-color: #e5b85c;
+      box-shadow: 0 0 0 3px rgba(229,184,92,.12);
+    }
+
+    .password-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .forgot-link {
+      color: #e5b85c;
+      font-size: 12px;
+      text-decoration: none;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 15px;
+      margin-top: 8px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg,#f0d18c,#c89535);
+      color: #101a35;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 9px 22px rgba(214,170,80,.25);
+    }
+
+    .register-text {
+      text-align: center;
+      margin-top: 25px;
+      color: #bdc6d8;
+      font-size: 14px;
+    }
+
+    .register-text a {
+      color: #e5b85c;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .login-note {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 11px;
+      line-height: 1.6;
+      color: #8491a8;
+    }
+
+    .login-footer {
+      text-align: center;
+      padding: 18px;
+      color: #8491a8;
+      font-size: 12px;
+    }
+
+    @media(max-width:480px) {
+      .login-header {
+        padding: 19px 5%;
+      }
+
+      .brand {
+        font-size: 17px;
+      }
+
+      .login-card {
+        padding: 35px 23px;
+      }
+
+      .login-card h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="login-header">
+    <a href="index.html" class="brand">JAMAL LEARNING ACADEMY</a>
+    <a href="index.html" class="back-home">← Home</a>
+  </header>
+
+  <main class="login-wrapper">
+    <section class="login-card">
+
+      <div class="login-icon">✦</div>
+
+      <h1>Welcome Back!</h1>
+      <p class="subtitle">
+        Login to your account and continue your learning journey.
+      </p>
+
+      <form id="loginForm">
+
+        <div class="input-group">
+          <label for="mobile">Mobile Number</label>
+          <input
+            type="tel"
+            id="mobile"
+            name="mobile"
+            placeholder="Enter your mobile number"
+            maxlength="10"
+            inputmode="numeric"
+            autocomplete="tel"
+            required
+          >
+        </div>
+
+        <div class="input-group">
+          <div class="password-row">
+            <label for="password">Password</label>
+            <a href="#" class="forgot-link">Forgot Password?</a>
+          </div>
+
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required
+          >
+        </div>
+
+        <button type="submit" class="login-btn">
+          Login to Account →
+        </button>
+
+      </form>
+
+      <p class="register-text">
+        Don't have an account?
+        <a href="register.html">Create Account</a>
+      </p>
+
+      <p class="login-note">
+        Your learning journey starts here.<br>
+        Jamal Learning Academy © 2026
+      </p>
+
+    </section>
+  </main>
+
+  <footer class="login-footer">
+    Learn Today. Lead Tomorrow.
+  </footer>
+
+</body>
+</html>
