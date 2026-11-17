@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+  <title>You Are Offline | Jamal Learning Academy</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: #101827;
+    }
+
+    .offline-card {
+      width: 100%;
+      max-width: 550px;
+      text-align: center;
+      padding: 45px 25px;
+      background: #111d32;
+      border: 1px solid #34435b;
+      border-radius: 16px;
+    }
+
+    .offline-icon {
+      font-size: 65px;
+      margin-bottom: 20px;
+    }
+
+    .offline-card h1 {
+      color: #d6ad55;
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .offline-card p {
+      color: #c0c8d5;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    .retry-button {
+      display: inline-block;
+      padding: 13px 25px;
+      background: #d6ad55;
+      color: #101827;
+      border: none;
+      border-radius: 7px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .brand-name {
+      color: #9ba8ba;
+      font-size: 13px;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="offline-card">
+
+    <div class="offline-icon">📡</div>
+
+    <h1>You Are Offline!</h1>
+
+    <p>
+      It looks like your internet connection is unavailable.
+      Please check your connection and try again.
+    </p>
+
+    <button class="retry-button" onclick="window.location.reload()">
+      Try Again
+    </button>
+
+    <div class="brand-name">
+      Jamal Learning Academy<br>
+      Learn Today. Lead Tomorrow.
+    </div>
+
+  </main>
+
+</body>
+</html>
